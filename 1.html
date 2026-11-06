@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقار لجان الامتحانات وتسكين المدارس - إدارة بلقاس التعليمية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Arabic Font: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                            900: '#0f172a'
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            body {
+                background-color: white;
+                color: black;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-900 text-white shadow-xl relative overflow-hidden border-b-4 border-gold-500">
+        <!-- Decorative Background Pattern -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10">
+            <!-- Leadership Cards Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 pb-6 border-b border-brand-700/60">
+                <!-- Director General -->
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 flex items-center gap-4 hover:bg-white/15 transition duration-300">
+                    <div class="w-14 h-14 rounded-full bg-gold-500 text-brand-900 flex items-center justify-center text-2xl font-bold shadow-lg shrink-0">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <div class="text-gold-400 text-xs font-semibold uppercase tracking-wider">مدير عام الإدارة التعليمية</div>
+                        <h2 class="text-xl font-bold text-white leading-tight">الأستاذ / إيهاب القاضي</h2>
+                        <p class="text-xs text-slate-300 mt-0.5">إدارة بلقاس التعليمية</p>
+                    </div>
+                </div>
+
+                <!-- Deputy Director -->
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 flex items-center justify-center md:justify-start gap-4 hover:bg-white/15 transition duration-300">
+                    <div class="w-14 h-14 rounded-full bg-sky-400 text-brand-900 flex items-center justify-center text-2xl font-bold shadow-lg shrink-0">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <div class="text-sky-300 text-xs font-semibold uppercase tracking-wider">وكيل الإدارة التعليمية</div>
+                        <h2 class="text-xl font-bold text-white leading-tight">م / محمد المهدي</h2>
+                        <p class="text-xs text-slate-300 mt-0.5">إدارة بلقاس التعليمية</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Title Banner -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-brand-700/80 px-3 py-1 rounded-full text-xs font-medium text-gold-300 mb-2 border border-gold-500/30">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span>جمهورية مصر العربية - محافظة الدقهلية</span>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+                        منظومة تسكين مقار لجان الامتحانات
+                    </h1>
+                    <p class="text-slate-300 text-sm mt-1">دليل توزيع مقار اللجان والمدارس المسكنة بها لإدارة بلقاس التعليمية</p>
+                </div>
+
+                <!-- Quick Action Buttons -->
+                <div class="flex items-center gap-3 no-print">
+                    <button onclick="window.print()" class="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-4 py-2.5 rounded-lg text-sm font-semibold transition shadow-md">
+                        <i class="fa-solid fa-print"></i>
+                        <span>طباعة الكشوف</span>
+                    </button>
+                    <button onclick="exportToCSV()" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-lg text-sm font-semibold transition shadow-md">
+                        <i class="fa-solid fa-file-excel"></i>
+                        <span>تصدير Excel</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- Stats Overview Cards -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8 no-print">
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between hover:shadow-md transition">
+                <div>
+                    <p class="text-xs font-semibold text-slate-500 uppercase">إجمالي مقر اللجان</p>
+                    <h3 class="text-3xl font-extrabold text-brand-800 mt-1" id="stat-total-committees">0</h3>
+                    <span class="text-xs text-emerald-600 font-medium inline-block mt-1">موزعة على القطاعات</span>
+                </div>
+                <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 text-xl">
+                    <i class="fa-solid fa-school shadow-sm"></i>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between hover:shadow-md transition">
+                <div>
+                    <p class="text-xs font-semibold text-slate-500 uppercase">المدارس المسكنة</p>
+                    <h3 class="text-3xl font-extrabold text-emerald-600 mt-1" id="stat-total-schools">0</h3>
+                    <span class="text-xs text-slate-500 font-medium inline-block mt-1">مدرسة مسكنة باللجان</span>
+                </div>
+                <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 text-xl">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between hover:shadow-md transition">
+                <div>
+                    <p class="text-xs font-semibold text-slate-500 uppercase">إجمالي الفصول</p>
+                    <h3 class="text-3xl font-extrabold text-amber-600 mt-1" id="stat-total-classes">0</h3>
+                    <span class="text-xs text-slate-500 font-medium inline-block mt-1">فصل تجهيزي</span>
+                </div>
+                <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 text-xl">
+                    <i class="fa-solid fa-door-open"></i>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between hover:shadow-md transition">
+                <div>
+                    <p class="text-xs font-semibold text-slate-500 uppercase">الطاقة الاستيعابية</p>
+                    <h3 class="text-3xl font-extrabold text-purple-600 mt-1" id="stat-total-capacity">0</h3>
+                    <span class="text-xs text-slate-500 font-medium inline-block mt-1">مقعد طالب/طالبة</span>
+                </div>
+                <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 text-xl">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters & Search Controls -->
+        <section class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm mb-8 no-print">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+                
+                <!-- Search Input -->
+                <div class="relative w-full lg:w-96">
+                    <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="searchInput" placeholder="ابحث برقم اللجنة، اسم اللجنة، أو المدرسة..." 
+                           class="w-full pl-4 pr-11 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition text-sm">
+                </div>
+
+                <!-- Dropdown Filters -->
+                <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+                    <!-- Stage Filter -->
+                    <select id="stageFilter" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition cursor-pointer">
+                        <option value="all">جميع المراحل الدراسية</option>
+                        <option value="الاعدادية">المرحلة الإعدادية</option>
+                        <option value="الابتدائية">المرحلة الابتدائية</option>
+                    </select>
+
+                    <!-- Type Filter -->
+                    <select id="typeFilter" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition cursor-pointer">
+                        <option value="all">جميع أنواع التبعية</option>
+                        <option value="حكومي">حكومي</option>
+                        <option value="خاصة">خاصة</option>
+                        <option value="دولي">دولي</option>
+                    </select>
+
+                    <!-- View Switcher -->
+                    <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 mr-auto lg:mr-0">
+                        <button id="viewTableBtn" onclick="switchView('table')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white text-brand-700 shadow-sm">
+                            <i class="fa-solid fa-table-cells ml-1"></i> جدول
+                        </button>
+                        <button id="viewCardsBtn" onclick="switchView('cards')" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition">
+                            <i class="fa-solid fa-border-all ml-1"></i> بطاقات
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Table View Section -->
+        <section id="tableView" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mb-8">
+            <div class="overflow-x-auto custom-scrollbar">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-slate-800 text-white text-xs uppercase font-bold">
+                            <th class="p-4 text-center w-16">رقم اللجنة</th>
+                            <th class="p-4">اسم مقر اللجنة</th>
+                            <th class="p-4">المرحلة</th>
+                            <th class="p-4">عنوان اللجنة</th>
+                            <th class="p-4">المدارس المسكنة بها</th>
+                            <th class="p-4 text-center">الفصول</th>
+                            <th class="p-4 text-center">السعة</th>
+                            <th class="p-4 text-center no-print">الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="committeesTableBody" class="divide-y divide-slate-100 text-sm">
+                        <!-- Dynamic Rows Injected Here -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Empty state -->
+            <div id="noResultsTable" class="hidden p-12 text-center text-slate-400">
+                <i class="fa-solid fa-folder-open text-5xl mb-3 text-slate-300"></i>
+                <p class="text-base font-semibold">لم يتم العثور على أي نتائج مطابقة لبحثك</p>
+                <p class="text-xs mt-1">تأكد من كتابة الكلمات بشكل صحيح أو قم بإعادة ضبط الفلاتر</p>
+            </div>
+        </section>
+
+        <!-- Cards View Section (Initially Hidden) -->
+        <section id="cardsView" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Dynamic Cards Injected Here -->
+        </section>
+
+    </main>
+
+    <!-- Modal details dialog -->
+    <div id="committeeModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar border border-slate-200">
+            <!-- Modal Header -->
+            <div class="bg-brand-900 text-white p-5 rounded-t-2xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span id="modalCommitteeNo" class="bg-gold-500 text-brand-900 font-extrabold px-3 py-1 rounded-lg text-sm">#0000</span>
+                    <h3 id="modalCommitteeName" class="text-lg font-bold">اسم اللجنة</h3>
+                </div>
+                <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 space-y-6">
+                <!-- Location & Info -->
+                <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm">
+                    <div>
+                        <span class="text-slate-500 text-xs block">المرحلة الدراسية:</span>
+                        <span id="modalStage" class="font-bold text-brand-800">---</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 text-xs block">العنوان والتواجد:</span>
+                        <span id="modalAddress" class="font-bold text-slate-700">---</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 text-xs block">عدد الفصول:</span>
+                        <span id="modalClasses" class="font-bold text-amber-600">---</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 text-xs block">السعة الكلية:</span>
+                        <span id="modalCapacity" class="font-bold text-emerald-600">---</span>
+                    </div>
+                </div>
+
+                <!-- Schools Assigned Table -->
+                <div>
+                    <h4 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-school text-brand-600"></i>
+                        <span>المدارس المسكنة بهذه اللجنة:</span>
+                    </h4>
+                    <div class="border border-slate-200 rounded-xl overflow-hidden">
+                        <table class="w-full text-right text-xs">
+                            <thead class="bg-slate-100 font-bold text-slate-700">
+                                <tr>
+                                    <th class="p-3">اسم المدرسة المسكنة</th>
+                                    <th class="p-3 text-center">التبعية</th>
+                                    <th class="p-3 text-center">عدد الطلاب</th>
+                                </tr>
+                            </thead>
+                            <tbody id="modalSchoolsList" class="divide-y divide-slate-100">
+                                <!-- Dynamic Schools -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="bg-slate-50 px-6 py-4 rounded-b-2xl border-t border-slate-200 flex justify-end gap-3">
+                <button onclick="closeModal()" class="px-5 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-sm font-semibold transition">
+                    إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-6 text-center text-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <p class="font-semibold text-slate-300">إدارة بلقاس التعليمية - قسم الإمتحانات والتأمين الرقمي</p>
+                <p class="text-xs text-slate-500 mt-0.5">جميع الحقوق محفوظة © 2026</p>
+            </div>
+            <!-- Mandatory Credits Section (No Job title written) -->
+            <div class="bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700 text-gold-400 font-bold text-xs shadow-inner">
+                تصميم محمد على الدين احمد
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Data & Operations -->
+    <script>
+        // Data parsed from PDF sheets
+        const committeesData = [
+            {
+                id: "3355",
+                name: "بلقاس الإعدادية بنين",
+                stage: "الاعدادية",
+                address: "بلقاس - امام مجلس المدينة.",
+                classes: 19,
+                capacity: 380,
+                schools: [
+                    { name: "مدرسة بلقاس الاعدادية بنين (ج 1)", type: "حكومي", count: 379 }
+                ]
+            },
+            {
+                id: "3356",
+                name: "مجمع بلقاس (2) المسيري",
+                stage: "الاعدادية",
+                address: "بلقاس - حي مراد المسيري",
+                classes: 20,
+                capacity: 400,
+                schools: [
+                    { name: "مدرسة بلقاس الاعدادية بنين (ج 2)", type: "حكومي", count: 393 },
+                    { name: "مجمع بلقاس 2 تعليم اساسي (المسيري)", type: "حكومي", count: 68 }
+                ]
+            },
+            {
+                id: "3357",
+                name: "بلقاس الإعدادية بنات",
+                stage: "الاعدادية",
+                address: "بلقاس - شارع المدارس",
+                classes: 24,
+                capacity: 480,
+                schools: [
+                    { name: "صديقات الكتاب المقدس الخاصة", type: "خاصة", count: 114 },
+                    { name: "بلقاس الاعدادية بنات", type: "حكومي", count: 454 }
+                ]
+            },
+            {
+                id: "3358",
+                name: "مجمع بلقاس (1) جاد",
+                stage: "الاعدادية",
+                address: "بلقاس - عزبة صبحي",
+                classes: 36,
+                capacity: 720,
+                schools: [
+                    { name: "مجمع بلقاس تعليم اساسي (جاد)", type: "حكومي", count: 429 },
+                    { name: "البشائر الاعدادية الخاصة", type: "خاصة", count: 122 }
+                ]
+            },
+            {
+                id: "3359",
+                name: "الشهيد محمد شوق بدوي ع م",
+                stage: "الاعدادية",
+                address: "بلقاس - بجوار مدرسة الثانوية بنين بوابور النور",
+                classes: 16,
+                capacity: 320,
+                schools: [
+                    { name: "بنين الخازندار الاعدادية", type: "حكومي", count: 318 }
+                ]
+            },
+            {
+                id: "3360",
+                name: "بنين الخازندار الاعدادية",
+                stage: "الاعدادية",
+                address: "بلقاس - ارض مراد المسيري",
+                classes: 32,
+                capacity: 640,
+                schools: [
+                    { name: "الشهيد محمد شوقي محمد بدوي", type: "حكومي", count: 154 },
+                    { name: "بنات الخازندار الاعدادية", type: "حكومي", count: 604 }
+                ]
+            },
+            {
+                id: "3361",
+                name: "بلقاس الرسمية المتميزة للغات",
+                stage: "الاعدادية",
+                address: "بلقاس - مدينة بلقاس",
+                classes: 32,
+                capacity: 640,
+                schools: [
+                    { name: "بلقاس الرسمية للغات", type: "حكومي", count: 380 },
+                    { name: "الراشد الخاصة للغات", type: "خاصة", count: 80 },
+                    { name: "الراشد الخاصة عربي", type: "خاصة", count: 80 }
+                ]
+            },
+            {
+                id: "3362",
+                name: "الزهراء ت ا",
+                stage: "الاعدادية",
+                address: "بلقاس شركة بسنديلة - الزهراء",
+                classes: 20,
+                capacity: 400,
+                schools: [
+                    { name: "أبو عرصة الاعدادية المشتركة", type: "حكومي", count: 47 },
+                    { name: "أبو عرصة ت ا", type: "حكومي", count: 36 },
+                    { name: "الشهيد شريف احمد السيد الابتدائية", type: "حكومي", count: 36 },
+                    { name: "طارق ابن زياد ت ا", type: "حكومي", count: 170 },
+                    { name: "المغازي الجديدة بنات", type: "حكومي", count: 522 },
+                    { name: "الترزي الاعدادية المشتركة", type: "حكومي", count: 182 },
+                    { name: "المحمدية الخاصة المشتركة", type: "خاصة", count: 6 }
+                ]
+            },
+            {
+                id: "3363",
+                name: "بسنديلة الإعدادية",
+                stage: "الاعدادية",
+                address: "بسنديلة - بلقاس",
+                classes: 21,
+                capacity: 420,
+                schools: [
+                    { name: "علي عبد القادر العطار الاعدادية", type: "حكومي", count: 51 },
+                    { name: "دملات الابتدائية", type: "حكومي", count: 188 },
+                    { name: "لعلاش الاعدادية", type: "حكومي", count: 185 },
+                    { name: "الجوادية الاعدادية", type: "حكومي", count: 51 }
+                ]
+            },
+            {
+                id: "3364",
+                name: "بسنديلة الاعدادية المشتركة",
+                stage: "الاعدادية",
+                address: "بسنديلة - بلقاس",
+                classes: 24,
+                capacity: 480,
+                schools: [
+                    { name: "فصول المحفوظة الاعدادية بنين", type: "حكومي", count: 53 },
+                    { name: "فصول المحفوظة الاعدادية بنات", type: "حكومي", count: 445 },
+                    { name: "كفر الغنامة تعليم اساسي", type: "حكومي", count: 81 },
+                    { name: "الوساطة تعليم اساسي", type: "حكومي", count: 197 },
+                    { name: "تل عميرة الاعدادية", type: "حكومي", count: 24 }
+                ]
+            },
+            {
+                id: "3365",
+                name: "منشأة بسنديلة الإعدادية م",
+                stage: "الاعدادية",
+                address: "منشأة بسنديلة - بلقاس",
+                classes: 24,
+                capacity: 480,
+                schools: [
+                    { name: "منشأة بسنديلة الاعدادية بنات", type: "حكومي", count: 328 },
+                    { name: "الشهيد عبد اللطيف وحيد تعليم اساسي بحلاوه", type: "حكومي", count: 25 }
+                ]
+            },
+            {
+                id: "3366",
+                name: "الدمايرة ت ا",
+                stage: "الاعدادية",
+                address: "الدمايرة - الطريق الرئيسي - بلقاس",
+                classes: 30,
+                capacity: 600,
+                schools: [
+                    { name: "الدمايرة تعليم اساسي", type: "حكومي", count: 519 },
+                    { name: "عبد الحافظ الكردي تعليم أساسي", type: "حكومي", count: 208 },
+                    { name: "الكوم الأحمر الاعدادي", type: "حكومي", count: 88 },
+                    { name: "يوسف صالح و جنيدي ت ا", type: "حكومي", count: 198 }
+                ]
+            },
+            {
+                id: "3367",
+                name: "المستشار محمود برهام ت أ بالملعب",
+                stage: "الاعدادية",
+                address: "الملعب - بلقاس",
+                classes: 27,
+                capacity: 540,
+                schools: [
+                    { name: "المستشار محمود برهام ت أ", type: "حكومي", count: 510 },
+                    { name: "برهام تعليم اساسي", type: "حكومي", count: 17 },
+                    { name: "ابوطه ع", type: "حكومي", count: 28 },
+                    { name: "البغدادي ت ا", type: "حكومي", count: 50 },
+                    { name: "مصطفى كامل ع م", type: "حكومي", count: 28 }
+                ]
+            },
+            {
+                id: "3368",
+                name: "بلقاس خامس الابتدائية",
+                stage: "الابتدائية",
+                address: "قرية بلقاس خامس - بلقاس",
+                classes: 27,
+                capacity: 540,
+                schools: [
+                    { name: "السلام ت ا", type: "حكومي", count: 47 },
+                    { name: "وزير تعليم اساسي", type: "حكومي", count: 99 },
+                    { name: "بلقاس خامس ع", type: "حكومي", count: 40 },
+                    { name: "مدرسة عبد الله عبد السلام صالح ع بالبلاقسة", type: "حكومي", count: 22 },
+                    { name: "عبده و حمد ت ا", type: "حكومي", count: 337 }
+                ]
+            },
+            {
+                id: "3369",
+                name: "مجمع الجزائر ت أ",
+                stage: "الاعدادية",
+                address: "مستعمرة الجزائر - بلقاس",
+                classes: 28,
+                capacity: 560,
+                schools: [
+                    { name: "مجمع الجزائر الاعدادي", type: "حكومي", count: 26 },
+                    { name: "الجزائر الاعدادية", type: "حكومي", count: 47 },
+                    { name: "سعد عبد الفتاح تعليم اساسي", type: "حكومي", count: 522 },
+                    { name: "ابو نور الدين تعليم اساسي", type: "حكومي", count: 119 },
+                    { name: "الدولتلي الاعدادية", type: "حكومي", count: 117 },
+                    { name: "الرمله ع", type: "حكومي", count: 46 },
+                    { name: "الهلالي ت ا", type: "حكومي", count: 64 },
+                    { name: "رشاد أحمد إبراهيم أ بحر العش", type: "حكومي", count: 74 }
+                ]
+            },
+            {
+                id: "3370",
+                name: "منشأة عبد القادر وشومان الابتدائية",
+                stage: "الابتدائية",
+                address: "منشأة عبد القادر - بلقاس",
+                classes: 17,
+                capacity: 340,
+                schools: [
+                    { name: "السلسول الاعدادية", type: "حكومي", count: 28 },
+                    { name: "منشأة شومان الاعدادية", type: "حكومي", count: 303 },
+                    { name: "قاسم العيد الاعدادية", type: "حكومي", count: 37 }
+                ]
+            },
+            {
+                id: "3371",
+                name: "زبان الابتدائية",
+                stage: "الابتدائية",
+                address: "زبان - بلقاس",
+                classes: 17,
+                capacity: 340,
+                schools: [
+                    { name: "عصفور تعليم اساسي", type: "حكومي", count: 55 },
+                    { name: "الشهيد محمد بشير عبد التواب ع", type: "حكومي", count: 450 }
+                ]
+            },
+            {
+                id: "3372",
+                name: "مجمع السماحية الكبرى الابتدائية",
+                stage: "الاعدادية",
+                address: "السماحية الكبرى - بلقاس",
+                classes: 30,
+                capacity: 600,
+                schools: [
+                    { name: "المستعمرة الشرقية ت ا", type: "حكومي", count: 13 },
+                    { name: "الشهيد أحمد وجدي الاعدادية المشتركة", type: "حكومي", count: 24 },
+                    { name: "النهضة الاعدادية", type: "حكومي", count: 30 },
+                    { name: "النشرة ت ا", type: "حكومي", count: 22 },
+                    { name: "عبد الحميد شهاب الدين تعليم اساسي", type: "حكومي", count: 76 },
+                    { name: "اللواء عمر عبد العزيز الاعدادية", type: "حكومي", count: 508 },
+                    { name: "الشلطيطة تعليم اساسي", type: "حكومي", count: 157 }
+                ]
+            },
+            {
+                id: "3373",
+                name: "الشوامي وابودشيشة ع م",
+                stage: "الاعدادية",
+                address: "بلقاس - الشوامي وابودشيشة",
+                classes: 30,
+                capacity: 600,
+                schools: [
+                    { name: "الشوامي وابودشيشة ع م", type: "حكومي", count: 427 }
+                ]
+            },
+            {
+                id: "3374",
+                name: "سامح الرفاعي الابتدائية",
+                stage: "الابتدائية",
+                address: "الخلالة - بلقاس",
+                classes: 27,
+                capacity: 540,
+                schools: [
+                    { name: "النصر تعليم اساسي", type: "حكومي", count: 411 },
+                    { name: "منيرة زيدان الاعدادية", type: "حكومي", count: 410 },
+                    { name: "مدرسة الشهيد عمر عبد القادر تعليم اساسي", type: "حكومي", count: 15 }
+                ]
+            },
+            {
+                id: "3375",
+                name: "الستاموني الاعدادية المشتركة",
+                stage: "الاعدادية",
+                address: "الستاموني - بلقاس",
+                classes: 52,
+                capacity: 1040,
+                schools: [
+                    { name: "ابراهيم رزق العشري", type: "حكومي", count: 52 },
+                    { name: "الستاموني الاعدادية بنات", type: "حكومي", count: 561 },
+                    { name: "فصول السيد عيد بالسعدية البحرية", type: "حكومي", count: 35 },
+                    { name: "الستاموني الاعدادية بنين", type: "حكومي", count: 475 },
+                    { name: "اصلاح الستاموني تعليم اساسي", type: "حكومي", count: 73 }
+                ]
+            },
+            {
+                id: "3377",
+                name: "فليشوا تعليم اساسي 1",
+                stage: "الاعدادية",
+                address: "فليشوا - بلقاس",
+                classes: 20,
+                capacity: 400,
+                schools: [
+                    { name: "موسي العربي الاعدادية", type: "حكومي", count: 318 },
+                    { name: "قلبشو 1 تعليم اساسي", type: "حكومي", count: 318 },
+                    { name: "قلبشو 2 تعليم اساسي", type: "حكومي", count: 198 }
+                ]
+            },
+            {
+                id: "3378",
+                name: "الأمل تعليم اساسي",
+                stage: "الاعدادية",
+                address: "الحقير شهاب الدين - بلقاس",
+                classes: 36,
+                capacity: 720,
+                schools: [
+                    { name: "مصنع السكر", type: "حكومي", count: 35 },
+                    { name: "الأمل تعليم اساسي", type: "حكومي", count: 548 },
+                    { name: "تعليم اساسي 24", type: "حكومي", count: 2 },
+                    { name: "بصارت 1 28", type: "حكومي", count: 36 },
+                    { name: "بصارت | 29", type: "حكومي", count: 41 },
+                    { name: "بصار تعليم اساسي", type: "حكومي", count: 45 }
+                ]
+            },
+            {
+                id: "3379",
+                name: "الشهيد أحمد أسامة ت أ بالمركزية",
+                stage: "الاعدادية",
+                address: "المركزية قرية الحقير شهاب الدين - بلقاس",
+                classes: 30,
+                capacity: 600,
+                schools: [
+                    { name: "الشهيد احمد اسامة تعليم أساسي المركزية", type: "حكومي", count: 600 },
+                    { name: "النيل تعليم اساسي", type: "حكومي", count: 30 },
+                    { name: "الشهيد محمد محمد عبد العزيزات", type: "حكومي", count: 25 },
+                    { name: "جاليا الاعدادية", type: "حكومي", count: 464 }
+                ]
+            },
+            {
+                id: "3380",
+                name: "الابتدائية 53",
+                stage: "الابتدائية",
+                address: "قرية الدرافيل - بلقاس",
+                classes: 18,
+                capacity: 360,
+                schools: [
+                    { name: "تعليم اساسي 21", type: "حكومي", count: 53 },
+                    { name: "حقير تعليم اساسي 20", type: "حكومي", count: 18 },
+                    { name: "الدرافيل تعليم اساسي", type: "حكومي", count: 295 },
+                    { name: "الاعدادية 53", type: "حكومي", count: 37 }
+                ]
+            },
+            {
+                id: "3381",
+                name: "شرقية المعصرة",
+                stage: "الاعدادية",
+                address: "شرقية المعصرة - بلقاس",
+                classes: 18,
+                capacity: 360,
+                schools: [
+                    { name: "الشهيد فؤاد رفعت 57 ت ا", type: "حكومي", count: 351 },
+                    { name: "تعليم اساسي 51", type: "حكومي", count: 49 },
+                    { name: "الدرافيل 34", type: "حكومي", count: 27 },
+                    { name: "تعليم اساسي 36", type: "حكومي", count: 146 }
+                ]
+            },
+            {
+                id: "3382",
+                name: "د عبد القادر القط الاعدادية المشتركة",
+                stage: "الاعدادية",
+                address: "مناش العرب - بلقاس",
+                classes: 15,
+                capacity: 300,
+                schools: [
+                    { name: "الدرافيل تعليم اساسي", type: "حكومي", count: 35 },
+                    { name: "الدرافيل تعليم اساسي 49", type: "حكومي", count: 71 },
+                    { name: "الدرقيل 37 تعليم اساسي", type: "حكومي", count: 300 },
+                    { name: "الفنان الاعدادي", type: "حكومي", count: 15 },
+                    { name: "عبد القادر القط الاعدادية", type: "حكومي", count: 15 }
+                ]
+            },
+            {
+                id: "3383",
+                name: "المعصرة الإعدادية بنات",
+                stage: "الاعدادية",
+                address: "المعصرة - بلقاس",
+                classes: 24,
+                capacity: 480,
+                schools: [
+                    { name: "المعصرة الاعدادية بنات", type: "حكومي", count: 440 }
+                ]
+            },
+            {
+                id: "3384",
+                name: "المعصرة الجديدة الابتدائية",
+                stage: "الابتدائية",
+                address: "المعصرة - بلقاس",
+                classes: 18,
+                capacity: 360,
+                schools: [
+                    { name: "باقة الشوريجي تعليم اساسي", type: "حكومي", count: 348 }
+                ]
+            },
+            {
+                id: "3385",
+                name: "الشهيد عارف الابتدائية",
+                stage: "الابتدائية",
+                address: "المعصرة - بلقاس",
+                classes: 36,
+                capacity: 720,
+                schools: [
+                    { name: "مدرسة المعصرة الاعدادية بنين ج 1", type: "حكومي", count: 316 },
+                    { name: "مدرسة المعصرة الاعدادية بنين ج 2", type: "حكومي", count: 368 }
+                ]
+            },
+            {
+                id: "3386",
+                name: "جمعة للتعليم الاساسي",
+                stage: "الاعدادية",
+                address: "ابريس - بجوار محطة المياه - بلقاس",
+                classes: 18,
+                capacity: 360,
+                schools: [
+                    { name: "منشأة البدراوي تعليم اساسي", type: "حكومي", count: 84 },
+                    { name: "العريض الإعدادية المشتركة", type: "حكومي", count: 32 },
+                    { name: "الفرنكو الاعدادية", type: "حكومي", count: 53 },
+                    { name: "ابو بدوي تعليم اساسي", type: "حكومي", count: 372 }
+                ]
+            }
+        ];
+
+        // Global State & Initialization
+        let currentView = 'table';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateStats();
+            renderData(committeesData);
+
+            // Filter Event Listeners
+            document.getElementById('searchInput').addEventListener('input', applyFilters);
+            document.getElementById('stageFilter').addEventListener('change', applyFilters);
+            document.getElementById('typeFilter').addEventListener('change', applyFilters);
+        });
+
+        // Calculate and Render Stats Summary
+        function calculateStats() {
+            const totalCommittees = committeesData.length;
+            let totalClasses = 0;
+            let totalCapacity = 0;
+            let schoolSet = new Set();
+
+            committeesData.forEach(item => {
+                totalClasses += item.classes || 0;
+                totalCapacity += item.capacity || 0;
+                item.schools.forEach(sch => schoolSet.add(sch.name));
+            });
+
+            document.getElementById('stat-total-committees').innerText = totalCommittees.toLocaleString('ar-EG');
+            document.getElementById('stat-total-schools').innerText = schoolSet.size.toLocaleString('ar-EG');
+            document.getElementById('stat-total-classes').innerText = totalClasses.toLocaleString('ar-EG');
+            document.getElementById('stat-total-capacity').innerText = totalCapacity.toLocaleString('ar-EG');
+        }
+
+        // Apply Search & Filters
+        function applyFilters() {
+            const searchVal = document.getElementById('searchInput').value.trim().toLowerCase();
+            const stageVal = document.getElementById('stageFilter').value;
+            const typeVal = document.getElementById('typeFilter').value;
+
+            const filtered = committeesData.filter(item => {
+                // Match search text
+                const matchSearch = item.id.includes(searchVal) ||
+                                    item.name.toLowerCase().includes(searchVal) ||
+                                    item.address.toLowerCase().includes(searchVal) ||
+                                    item.schools.some(s => s.name.toLowerCase().includes(searchVal));
+
+                // Match Stage
+                const matchStage = stageVal === 'all' || item.stage === stageVal;
+
+                // Match Type (if any school inside committee matches)
+                const matchType = typeVal === 'all' || item.schools.some(s => s.type === typeVal);
+
+                return matchSearch && matchStage && matchType;
+            });
+
+            renderData(filtered);
+        }
+
+        // Render Data into Table or Cards
+        function renderData(data) {
+            const tbody = document.getElementById('committeesTableBody');
+            const cardsContainer = document.getElementById('cardsView');
+            const noResults = document.getElementById('noResultsTable');
+
+            tbody.innerHTML = '';
+            cardsContainer.innerHTML = '';
+
+            if (data.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            data.forEach((item, index) => {
+                // Prepare Schools List Badge
+                const schoolsBadges = item.schools.map(s => 
+                    `<span class="inline-block bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-md text-xs font-semibold ml-1 mb-1 border border-slate-200 transition">
+                        ${s.name} (${s.count})
+                    </span>`
+                ).join('');
+
+                // Table Row Insertion
+                const tr = document.createElement('tr');
+                tr.className = index % 2 === 0 ? 'bg-white hover:bg-slate-50/80 transition' : 'bg-slate-50/50 hover:bg-slate-50/80 transition';
+                tr.innerHTML = `
+                    <td class="p-4 text-center">
+                        <span class="bg-brand-900 text-gold-400 px-2.5 py-1 rounded-md font-extrabold text-xs tracking-wider">
+                            ${item.id}
+                        </span>
+                    </td>
+                    <td class="p-4 font-bold text-slate-800">${item.name}</td>
+                    <td class="p-4">
+                        <span class="px-2.5 py-1 rounded-full text-xs font-bold ${item.stage === 'الاعدادية' ? 'bg-sky-100 text-sky-800' : 'bg-emerald-100 text-emerald-800'}">
+                            ${item.stage}
+                        </span>
+                    </td>
+                    <td class="p-4 text-slate-600 text-xs">${item.address}</td>
+                    <td class="p-4">${schoolsBadges}</td>
+                    <td class="p-4 text-center font-semibold text-amber-600">${item.classes}</td>
+                    <td class="p-4 text-center font-bold text-emerald-600">${item.capacity}</td>
+                    <td class="p-4 text-center no-print">
+                        <button onclick="openModal('${item.id}')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 p-2 rounded-lg text-xs font-bold transition flex items-center gap-1 mx-auto">
+                            <i class="fa-solid fa-eye"></i> التفاصيل
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+
+                // Card Item Insertion
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-brand-900 text-gold-400 px-3 py-1 rounded-lg text-xs font-bold">لجنة #${item.id}</span>
+                            <span class="px-2.5 py-1 rounded-full text-xs font-bold ${item.stage === 'الاعدادية' ? 'bg-sky-100 text-sky-800' : 'bg-emerald-100 text-emerald-800'}">${item.stage}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-1">${item.name}</h3>
+                        <p class="text-xs text-slate-500 mb-4"><i class="fa-solid fa-location-dot ml-1 text-slate-400"></i>${item.address}</p>
+                        
+                        <div class="border-t border-slate-100 pt-3 mb-4">
+                            <h4 class="text-xs font-bold text-slate-700 mb-2">المدارس المسكنة (${item.schools.length}):</h4>
+                            <div class="flex flex-wrap gap-1">
+                                ${schoolsBadges}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-3 flex items-center justify-between text-xs font-medium text-slate-600">
+                        <div>
+                            <span>فصول: <strong class="text-amber-600 font-bold">${item.classes}</strong></span>
+                            <span class="mr-3">سعة: <strong class="text-emerald-600 font-bold">${item.capacity}</strong></span>
+                        </div>
+                        <button onclick="openModal('${item.id}')" class="bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition">
+                            عرض التفاصيل
+                        </button>
+                    </div>
+                `;
+                cardsContainer.appendChild(card);
+            });
+        }
+
+        // Switch Table/Cards View
+        function switchView(view) {
+            currentView = view;
+            const tableView = document.getElementById('tableView');
+            const cardsView = document.getElementById('cardsView');
+            const btnTable = document.getElementById('viewTableBtn');
+            const btnCards = document.getElementById('viewCardsBtn');
+
+            if (view === 'table') {
+                tableView.classList.remove('hidden');
+                cardsView.classList.add('hidden');
+
+                btnTable.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white text-brand-700 shadow-sm";
+                btnCards.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition";
+            } else {
+                tableView.classList.add('hidden');
+                cardsView.classList.remove('hidden');
+
+                btnCards.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white text-brand-700 shadow-sm";
+                btnTable.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition";
+            }
+        }
+
+        // Modal Logic
+        function openModal(id) {
+            const item = committeesData.find(c => c.id === id);
+            if (!item) return;
+
+            document.getElementById('modalCommitteeNo').innerText = `#${item.id}`;
+            document.getElementById('modalCommitteeName').innerText = item.name;
+            document.getElementById('modalStage').innerText = item.stage;
+            document.getElementById('modalAddress').innerText = item.address;
+            document.getElementById('modalClasses').innerText = `${item.classes} فصل`;
+            document.getElementById('modalCapacity').innerText = `${item.capacity} طالب`;
+
+            const listBody = document.getElementById('modalSchoolsList');
+            listBody.innerHTML = '';
+
+            item.schools.forEach(sch => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-3 font-semibold text-slate-800">${sch.name}</td>
+                    <td class="p-3 text-center">
+                        <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-200">
+                            ${sch.type}
+                        </span>
+                    </td>
+                    <td class="p-3 text-center font-bold text-brand-700">${sch.count}</td>
+                `;
+                listBody.appendChild(tr);
+            });
+
+            document.getElementById('committeeModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('committeeModal').classList.add('hidden');
+        }
+
+        // Export data to CSV File
+        function exportToCSV() {
+            let csvContent = "\uFEFF"; // UTF-8 BOM
+            csvContent += "رقم اللجنة,اسم مقر اللجنة,المرحلة,عنوان اللجنة,الفصول,السعة,المدارس المسكنة\n";
+
+            committeesData.forEach(item => {
+                const schoolsString = item.schools.map(s => `${s.name} (${s.count})`).join(" - ");
+                const row = `"${item.id}","${item.name}","${item.stage}","${item.address}",${item.classes},${item.capacity},"${schoolsString}"\n`;
+                csvContent += row;
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", `مقار_لجان_إدارة_بلقاس_${new Date().toISOString().slice(0, 10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
